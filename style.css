@@ -5,5 +5,11 @@
 }
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
 }
 
+logo-menu {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
