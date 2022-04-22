@@ -8,8 +8,21 @@ body{
   background-color: white;
 }
 
-logo-menu {
-  background-color: red;
-  height: 100px;
-  width: 100px;
+.menu-logo {
+  height: 100vh;
+}
+
+.logo-img {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.logo-text {
+  font-size: 30px;
+}
+
+
+main {
+  background-color: aqua;
+  flex-grow: 1;
 }

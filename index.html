@@ -9,35 +9,44 @@
   <title>Campo Minato</title>
 </head>
 <body>
-  <div class="d-flex flex-column">
-    <header class="container logo-menu">
+  <div class=" menu-logo d-flex flex-column">
+    <header class="container">
       <div class="row">
-        <div class="col">
+        <div class="col logo-menu">
           <div class="logo d-flex align-items-center py-3">
-            <img src="img/logo.jfif" alt="">
-            <span>Campo Minato</span>
+            <img class="logo-img" src="img/logo.jfif" alt="">
+            <span class="logo-text">Campo Minato</span>
           </div>
         </div>
         <div class="col d-flex align-items-center py-3">
           <label for="level">Difficoltà</label>
           <select class="form-select mx-3" name="level" id="level">
-            <option value="">Easy</option>
-            <option value="">Hard</option>
-            <option value="">Crazy</option>
+            <option value="" selected>Difficoltà 1</option>
+            <option value="">Difficoltà 2</option>
+            <option value="">Difficoltà 3</option>
           </select>
+          <button type="button" id="play" class="btn btn-success">Gioca</button>
         </div>
       </div>
     </header>
+
+
+
+    <main class="d-flex justify-content-center align-items-center flex-column">
+      <h2>Benvenuto Soldato!</h2>
+      <p>Scegli la difficoltà che fa per te e inizia a giocare</p>
+      <p>Buona Fortuna! &#127808;</p>
+    </main>
+
+
+
+
+
+
   </div>
 
 
 
-  <main class="d-flex justify-content-center align-items-center flex-column">
-
-
-
-
-  </main>
 
 
 
