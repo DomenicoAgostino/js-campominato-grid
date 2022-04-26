@@ -1,68 +1,70 @@
-console.log("Ciao Mondo");
+const main = document.querySelector('.game-wrapper');
+const BOMBS_NUMBER = 16;
+document.getElementById('play').addEventListener('click', play);
 
-const main = document.querySelector("main");
-document.getElementById("play").addEventListener("click", play);
 
-function play() {
-  reset();
-  const level = document.getElementById("level").value;
+
+function play(){
+
+ 
+  const level = document.getElementById('level').value;
   const gridLevels = [100,81,49];
-  const cellNumbers = gridLevels[level];
-  // const bombs = generateBombs(cellNumbers)
-  console.log("cellNumbers", cellNumbers);
-
-
-  generatePlayground (cellNumbers);
-
   
+  const cellNumbers = gridLevels[level];
+  
+  reset(cellNumbers);
+  
+  console.log('bombs', bombs);
+  
+  
+  generatePlayground(cellNumbers);
+
 }
 
 function generatePlayground(cellNumbers){
-  const grid = document.createElement("div");
-  grid.className="grid";
 
-for(let i =1; i <= cellNumbers; i++){
+  const grid = document.createElement('div');
+  grid.className = 'grid';
 
-  const cell = generateCell(i, cellNumbers);
+  for(let i = 1; i <= cellNumbers; i++){
 
-  grid.append(cell)
+    
+    const cell = generateCell(i, cellNumbers);
+    grid.append(cell);
+  }
+
+  main.append(grid);
+
 }
 
-main.append(grid);
-
-}
-
-
-function generateCell(cellId, cellNumbers) {
- 
-  const cell = document.createElement("div")
-  cell.className = "cell";
+function generateCell(cellId, cellNumbers){
   
-  cell.classList.add("square"+cellNumbers)
-  cell.innerHTML = '<span>13</span>';
+  const cell = document.createElement('div');
+  cell.className = 'cell';
 
+  
+
+  
+  cell.classList.add('square'+cellNumbers);
+  cell.innerHTML = `<span>${cellId}</span>`;
+
+ 
   cell.cellId = cellId;
 
-  
-  cell.addEventListener("click", handleClickCell);
-
+ 
+  cell.addEventListener('click', handleClickCell);
 
   return cell;
 }
 
+
 function handleClickCell(){
-  this.classList.add("clicked");
-}
+  
 
-
-
-function reset(){
-  main.innerHTML="";
-}
-
-
-function generateRandomInt (min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min );
+ 
+  
+  
+  
 }
 
 
@@ -70,9 +72,28 @@ function generateRandomInt (min, max) {
 
 
 
+function generateBombs(cellNumbers){
+  const generatedBombs = [];
+
+ 
+  while(generatedBombs.length < BOMBS_NUMBER){
+    const bomb = generateRandomInt(1, cellNumbers);
+    
+    if(!generatedBombs.includes(bomb)){
+      generatedBombs.push(bomb);
+    }
+  }
+
+  return generatedBombs;
+}
 
 
+function reset(cellNumbers){
+  bombs = generateBombs(cellNumbers);
+  main.innerHTML = '';
+  document.querySelector('.endMessage').innerHTML = '';
+}
 
-
-
-
+function generateRandomInt(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
